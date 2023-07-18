@@ -1,0 +1,35 @@
+#########################################
+#                                       #
+#       bashrc file by Mohd Sabahat     #
+#                                       #
+#########################################
+
+
+# Handle commands not found 
+#
+if [ -x /data/data/com.termux/files/usr/libexec/termux/command-not-found ]; then
+	command_not_found_handle() {
+		/data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
+	}
+fi
+
+# Autocompletion
+#
+# cycle through all matches with 'TAB' key
+bind 'TAB:menu-complete'
+
+shopt -s extglob    # necessary for programmable completion
+shopt -s autocd     # cd when entering just a path in the shell
+
+
+# Aliases
+alias ..='cd ..'
+alias ...='cd ../..'
+alias l="ls -lh"
+alias h='cd $HOME'
+alias q='exit'
+alias code='cd ~/storage/shared/code'
+alias sd='cd ~/storage/shared/'
+
+# To start Starship
+eval "$(starship init bash)"
